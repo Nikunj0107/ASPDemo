@@ -1,0 +1,24 @@
+﻿@using AspDemo1.Models
+@model ReportEoDVM
+
+@{ 
+    Game g = Model.TopGame;
+    List<Member> members = Model.NewMembers;
+}
+@{
+    ViewBag.Title = "Action8";
+}
+
+<h2>Action8</h2>
+Top Game of the Day : @Model.TopGame.Title
+<br />
+
+New Members joined today:
+<ul>
+    @foreach (Member m in Model.NewMembers)
+    {
+        @*<li>@m.FirstName @m.LastName</li>*@
+        @Html.Partial("_memberAsSingleLine", m)
+    }
+
+</ul>
